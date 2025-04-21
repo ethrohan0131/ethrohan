@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Md Rohan Uddin - Portfolio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --primary: #0077ff;
+      --card: #f4f4f4;
+      --accent: #00b894;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .section-card {
+      margin: 50px auto;
+      padding: 30px;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      background: linear-gradient(135deg, #f0f8ff, #e6e6fa);
+    }
+    .section-card:nth-child(even) {
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    }
+    .section-card h2, .section-card h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+    img.profile {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 20px;
+      animation: pulse 3s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .social-links {
+      text-align:center; margin:20px 0;
+    }
+    .social-links a {
+      margin: 0 10px;
+      font-size:1.8em;
+      color:var(--text);
+      transition:transform 0.3s, color 0.3s;
+    }
+    .social-links a:hover {
+      transform:scale(1.2);
+      color:var(--primary);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateX(-80px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    }
+    .reveal.right {
+      transform: translateX(80px);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .contact-form input, .contact-form textarea {
+      width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc;
+    }
+    .contact-form button {
+      padding:12px 24px;
+      background:var(--primary);
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <section class="section-card reveal">
+    <img src="profile.jpg" alt="Md Rohan Uddin" class="profile"/>
+    <h1>👋 I'm Md Rohan Uddin</h1>
+    <p style="text-align:center;">I'm a Web Developer & Designer from Bangladesh, crafting responsive websites with modern UI/UX.</p>
+    <div class="social-links">
+      <a href="https://facebook.com/ethrohan.0132" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/mdrohanofficial" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/in/mdrohanofficial" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/mdrohanofficial" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:rohanuddinshahed0132@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+8801301693237"><i class="fas fa-phone"></i></a>
+    </div>
+  </section>
+
+  <section class="section-card reveal right">
+    <h2>🪪 Personal Information</h2>
+    <ul>
+      <li><strong>Full Name:</strong> Md Rohan Uddin</li>
+      <li><strong>Blood Group:</strong> O+</li>
+      <li><strong>Date of Birth:</strong> 04 Nov 2003</li>
+      <li><strong>ID No:</strong> 6018523776</li>
+      <li><strong>Institute:</strong> Hannan Trading</li>
+    </ul>
+  </section>
+
+  <section class="section-card reveal">
+    <h2>🎓 Educational Background</h2>
+    <ul>
+      <li>SSC (2021): Sitakunda Govt. Model High School</li>
+      <li>HSC (2022-2023): Sitakunda Degree College</li>
+      <li>Subject: Commerce</li>
+      <li>Current Study: None</li>
+    </ul>
+  </section>
+
+  <section class="section-card reveal right">
+    <h2>🧑‍💻 Freelance Availability</h2>
+    <p>I am currently <strong style="color:var(--accent);">available</strong> for freelance projects and collaborations.</p>
+    <p><a href="mailto:rohanuddinshahed0132@gmail.com" class="contact-form button">📧 Hire Me</a></p>
+  </section>
+
+  <section class="section-card reveal">
+    <h2>🚀 Future Projects</h2>
+    <ul>
+      <li><strong>Crypto Tracker:</strong> Real-time tracker using CoinGecko API. <a href="#">View</a></li>
+      <li><strong>Portfolio Website:</strong> Responsive animated site. <a href="#">View</a></li>
+      <li><strong>Login Auth App:</strong> Login & registration with validation. <a href="#">View</a></li>
+    </ul>
+  </section>
+
+  <section class="section-card reveal right">
+    <h2>📬 Contact Me</h2>
+    <form action="https://formspree.io/f/xeogjgaw" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.reveal').forEach((el, idx) => {
+        setTimeout(() => el.classList.add('visible'), idx * 300);
+      });
+    });
+  </script>
+</body>
+</html>
