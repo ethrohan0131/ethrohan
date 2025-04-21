@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Rohan Uddin - Portfolio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --primary: #0077ff;
+      --card: #f4f4f4;
+      --accent: #00b894;
+    }
+    [data-theme="dark"] {
+      --bg: #111111;
+      --text: #ffffff;
+      --card: #1e1e1e;
+    }
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+    h1, h2 {
+      animation: fadeInDown 1s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .social-links {
+      text-align: center;
+      margin-top: 30px;
+      animation: fadeIn 2s ease-in;
+    }
+    .social-links a {
+      margin: 0 15px;
+      font-size: 2em;
+      color: var(--text);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: var(--primary);
+      transform: scale(1.2) rotate(5deg);
+    }
+    .intro {
+      max-width: 700px;
+      margin: 80px auto 30px auto;
+      padding: 30px 20px;
+      text-align: center;
+      background-color: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease-out;
+    }
+    .intro img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .education-section, .personal-info {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 30px 20px;
+      background-color: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease-in-out;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .education-section ul, .personal-info ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .education-section li, .personal-info li {
+      padding: 10px 0;
+      font-size: 1.2em;
+    }
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card);
+      border: 1px solid var(--primary);
+      border-radius: 50%;
+      padding: 12px;
+      cursor: pointer;
+      color: var(--text);
+      font-size: 1.5em;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dark-toggle:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    .dark-toggle i {
+      font-size: 24px;
+    }
+    #sun-icon {
+      display: block;
+    }
+    #moon-icon {
+      display: none;
+    }
+    [data-theme="dark"] .dark-toggle #sun-icon {
+      display: none;
+    }
+    [data-theme="dark"] .dark-toggle #moon-icon {
+      display: block;
+    }
+    /* Freelance Section */
+    .freelance-section {
+      background-color: var(--card);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .freelance-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+    /* Projects Section */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background-color: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+    .project-card h3 {
+      color: var(--primary);
+    }
+    /* Contact Section */
+    .contact-section {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 40px 30px;
+      background-color: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    .contact-section form label {
+      font-size: 1.1em;
+      margin-bottom: 8px;
+    }
+    .contact-section form input, .contact-section form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .contact-section form button {
+      padding: 12px 24px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .contact-section form button:hover {
+      background: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <button class="fab" onclick="scrollToTop()" title="Go to Top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <button class="dark-toggle" onclick="toggleTheme()">
+    <i class="fas fa-sun" id="sun-icon"></i>
+    <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+  </button>
+
+  <section class="intro">
+    <img src="C:\Users\rohan\OneDrive\Pictures\WhatsApp Image 2025-04-21 at 11.57.11_348e1a3a.jpg" alt="Md Rohan Uddin">
+    <h1>👋 I'm Md Rohan Uddin</h1>
+    <p>I'm a Web Developer & Designer from Bangladesh, crafting responsive websites with modern technologies and smooth UI/UX.</p>
+    <p><strong>Let's build the web — one pixel at a time.</strong></p>
+  </section>
+
+  <section class="social-links">
+    <h2>Connect with Me</h2>
+    <a href="https://facebook.com/ethrohan.0132" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/mdrohanofficial" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com/in/mdrohanofficial" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/mdrohanofficial" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="mailto:rohanuddinshahed0132@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="tel:+8801301693237"><i class="fas fa-phone"></i></a>
+  </section>
+
+  <section class="personal-info">
+    <h2>🪪 Personal Information</h2>
+    <ul>
+      <li><strong>Full Name:</strong> Md Rohan Uddin</li>
+      <li><strong>Blood Group:</strong> O+</li>
+      <li><strong>Date of Birth:</strong> 04 Nov 2003</li>
+      <li><strong>ID No:</strong> 6018523776</li>
+      <li><strong>Institute:</strong> Hannan Trading</li>
+    </ul>
+  </section>
+
+  <section class="education-section">
+    <h2>🎓 Educational Background</h2>
+    <ul>
+      <li><strong>SSC (2021):</strong> Sitakunda Govt. Model High School</li>
+      <li><strong>HSC (2022-2023):</strong> Sitakunda Degree College</li>
+      <li><strong>Subject:</strong> commerce</li>
+      <li><strong>Current Study:</strong> None</li>
+    </ul>
+  </section>
+
+  <section class="freelance-section">
+    <h2>🧑‍💻 Freelance Availability</h2>
+    <p style="font-size: 1.1em;">I am currently <strong style="color: var(--accent);">available</strong> for freelance projects and collaborations. Whether you need a full website, a UI revamp, or a front-end developer, feel free to reach out!</p>
+    <p style="margin-top: 15px;"><a href="mailto:rohanuddinshahed0132@gmail.com" style="text-decoration: none; color: white; background: var(--primary); padding: 12px 24px; border-radius: 8px; display: inline-block; margin-top: 10px; transition: background 0.3s ease;">📧 Hire Me</a></p>
+  </section>
+
+  <section class="projects">
+    <h2>🚀 Future Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Crypto Tracker</h3>
+        <p>A real-time cryptocurrency tracker built using CoinGecko API, showing live prices, charts, and dark/light mode.</p>
+        <a href="https://github.com/mdrohanofficial/crypto-tracker" target="_blank">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>My personal responsive portfolio designed with HTML, CSS, and JavaScript featuring animation and theme toggle.</p>
+        <a href="https://github.com/mdrohanofficial/portfolio" target="_blank">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Login Auth App</h3>
+        <p>A login and registration web app with JavaScript validation, OTP UI, and Google login integration.</p>
+        <a href="https://github.com/mdrohanofficial/login-auth-app" target="_blank">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>📬 Contact Me</h2>
+    <form>
+      <label>Name:</label><br>
+      <input type="text" placeholder="Your Name" required style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc;"><br>
+      <label>Email:</label><br>
+      <input type="email" placeholder="Your Email" required style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc;"><br>
+      <label>Message:</label><br>
+      <textarea rows="5" placeholder="Your Message" required style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc;"></textarea><br>
+      <button type="submit" style="padding: 12px 24px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s ease;">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Md Rohan Uddin. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      if (currentTheme === "dark") {
+        document.documentElement.removeAttribute("data-theme");
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      document.getElementById('progressBar').style.width = scrollPercent + '%';
+    });
+  </script>
+</body>
+</html>
